@@ -13,9 +13,9 @@ function Sidebar() {
       </button>
 
       <div className="nav-list">
-        <Link to='/'>Dashboard</Link>
-        <Link to='/active'>Active</Link>
-        <Link to='/completed'>Completed</Link>
+        <Link to='/' className="nav-item">Dashboard</Link>
+        <Link to='/active' className="nav-item">Active</Link>
+        <Link to='/completed' className="nav-item">Completed</Link>
       </div>
     </div>
   );
