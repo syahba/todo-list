@@ -5,7 +5,6 @@ import CompletedPage from './components/CompletedPage'
 import Sidebar from './components/Sidebar'
 
 function App() {
-
   return (
     <>
       <BrowserRouter>
