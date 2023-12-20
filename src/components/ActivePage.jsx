@@ -1,33 +1,25 @@
-import ActiveTask from "./ActiveTask";
+import { useDispatch, useSelector } from "react-redux";
 import Header from "./Header";
 import Heading from "./Heading";
+import { useEffect } from "react";
+import { getTasks } from "../redux/slice/todo-slice";
+import TaskContainer from "./TaskContainer";
+import EmptyTask from "./EmptyTask";
 
 function ActivePage() {
-  // dummy data
-  const data = [
-    {
-      id: 1,
-      task: 'Buy monthly groceries',
-      isCompleted: false
-    },
-    {
-      id: 2,
-      task: 'Pick up the kids',
-      isCompleted: false
-    },
-    {
-      id: 3,
-      task: 'Get nails and hair done',
-      isCompleted: false
-    }
-  ];
+  const dispatch = useDispatch();
+  const { activeTasks, message } = useSelector(state => state.todo);
+  
+  useEffect(() => {
+    dispatch(getTasks());
+  }, []);
 
   return (
     <div>
       <Header header={'Active'}></Header>
 
       <Heading page={'Active'}></Heading>
-      <ActiveTask data={data}></ActiveTask>
+      {message === 'Error' ? <EmptyTask status={'active'}></EmptyTask> : <TaskContainer tasks={{ activeTasks }}></TaskContainer>}
     </div>
   );
 }

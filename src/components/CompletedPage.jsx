@@ -1,28 +1,25 @@
-import CompletedTask from "./CompletedTask";
+import { useDispatch, useSelector } from "react-redux";
 import Header from "./Header";
 import Heading from "./Heading";
+import { getTasks } from "../redux/slice/todo-slice";
+import { useEffect } from "react";
+import TaskContainer from "./TaskContainer";
+import EmptyTask from "./EmptyTask";
 
 function CompletedPage() {
-    // dummy data
-    const data = [
-      {
-        id: 4,
-        task: 'Prepare presentations',
-        isCompleted: true
-      },
-      {
-        id: 5,
-        task: 'Go to the gym',
-        isCompleted: true
-      }
-    ];
+  const dispatch = useDispatch();
+  const { completedTasks, message } = useSelector(state => state.todo);
+  
+  useEffect(() => {
+    dispatch(getTasks());
+  }, []);
 
   return (
     <div>
       <Header header={'Completed'}></Header>
 
       <Heading page={'Completed'}></Heading>
-      <CompletedTask data={data}></CompletedTask>
+      {message === 'Error' ? <EmptyTask status={'completed'}></EmptyTask> : <TaskContainer tasks={{ completedTasks }}></TaskContainer>}
     </div>
   );
 }
