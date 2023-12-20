@@ -3,15 +3,12 @@ import Dashboard from './components/Dashboard'
 import ActivePage from './components/ActivePage'
 import CompletedPage from './components/CompletedPage'
 import Sidebar from './components/Sidebar'
-import Dropdown from './components/Dropdown'
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Sidebar></Sidebar>
-
-        <Dropdown></Dropdown>
 
         <Routes>
           <Route path='/' element={<Dashboard></Dashboard>}></Route>
