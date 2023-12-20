@@ -19,7 +19,8 @@ function ActivePage() {
       <Header header={'Active'}></Header>
 
       <Heading page={'Active'}></Heading>
-      {message === 'Error' ? <EmptyTask status={'active'}></EmptyTask> : <TaskContainer tasks={{ activeTasks }}></TaskContainer>}
+      {message === 'Error' || activeTasks.length === 0 ? <EmptyTask status={'active'}></EmptyTask> 
+        : <TaskContainer tasks={{ activeTasks }}></TaskContainer>}
     </div>
   );
 }

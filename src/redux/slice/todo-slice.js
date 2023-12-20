@@ -19,7 +19,7 @@ const todoSlice = createSlice({
       state.message = action.payload.message;
     },
     errorMessage(state, action) {
-      state.message = action.payload.message;
+      state.message = action.payload;
     }
   }
 });
@@ -32,7 +32,8 @@ export const getTasks = () => {
   const res = { message: 'Success' };
   
   if (data) {
-    const active = data.filter((v) => v.isCompleted === false);    
+    // separating active and completed tasks to two states
+    const active = data.filter((v) => v.isCompleted === false);
     const completed = data.filter((v) => v.isCompleted === true);
 
     res.active = active
@@ -41,32 +42,50 @@ export const getTasks = () => {
     return setTasks(res);
   } else {
     res.message = 'Error'; // error handling no data
-    return errorMessage(res);
-  }
+    return errorMessage(res.message);
+  };
 };
 
-// function get one task pakai index array
-
-// function add task buat save ke local storage
+// add new task to local storage and redux state
 export const addTask = (task) => {
-  const { payload: { active, completed } } = getTasks();
-  const arr = active.concat(completed);
+  const { payload: { active, completed, message } } = getTasks();
+  let arr = [];
+
+  if (message === 'Success') {
+    arr = active.concat(completed); // insert existing data to array
+  };
 
   const data = {
     id: new Date().getTime(),
     task,
     isCompleted: false
   };
-  arr.push(data);
+  arr.push(data); // insert new data to array
 
-  localStorage.setItem('tasks', JSON.stringify(arr));
+  localStorage.setItem('tasks', JSON.stringify(arr)); // replace data in local storage
 
   const res = { data, message: 'Success' };
   return newTask(res);
-}
+};
 
 // function edit dan check list pakai id, panggil get one task function lalu save lagi ke redux dan local storage
 
-// dunction delete pakai id, panggil get one task function lalu save lagi data tanpa deleted ke redux dan local storage
+// delete task in redux state and local storage
+export const deleteTask = (id) => {
+  const { payload: { active, completed, message }} = getTasks();
+
+  if (message === 'Success') {
+    const arrCompleted = completed.filter(v => v.id !== id);
+    const arrActive = active.filter(v => v.id !== id);
+
+    const data = arrActive.concat(arrCompleted);
+    localStorage.setItem('tasks', JSON.stringify(data)); // replace data
+
+    const res = { active: arrActive, completed: arrCompleted, message: 'Success' };
+    return setTasks(res);
+  } else {
+    return errorMessage(message);
+  };
+};
 
 export default todoSlice.reducer;

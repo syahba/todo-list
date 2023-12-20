@@ -19,7 +19,8 @@ function CompletedPage() {
       <Header header={'Completed'}></Header>
 
       <Heading page={'Completed'}></Heading>
-      {message === 'Error' ? <EmptyTask status={'completed'}></EmptyTask> : <TaskContainer tasks={{ completedTasks }}></TaskContainer>}
+      {message === 'Error' || completedTasks.length === 0 ? <EmptyTask status={'completed'}></EmptyTask> 
+        : <TaskContainer tasks={{ completedTasks }}></TaskContainer>}
     </div>
   );
 }
