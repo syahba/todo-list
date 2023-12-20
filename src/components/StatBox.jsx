@@ -7,7 +7,7 @@ function StatBox({ props }) {
     <div className="stat-box" style={props.status == 'Completed' ? { backgroundColor: 'BA5112' } : { backgroundColor: 'EDB046' }}>
       {props.status == 'Completed' ? <FontAwesomeIcon icon={faCircleCheck} style={{ color: "#ffffff" }} /> 
         : <FontAwesomeIcon icon={faRotateRight} style={{ color: "#ffffff", }} />}
-      <h1 className="stat">{props.amount != 0 ? props.amount / props.total * 100 : 0}%</h1>
+      <h1 className="stat">{props.amount != 0 ? Math.round(props.amount / props.total * 100) : 0}%</h1>
       <p className="stat-desc">{props.status} tasks</p>
     </div>
   );

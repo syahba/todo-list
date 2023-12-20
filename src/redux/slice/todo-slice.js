@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { data } from "autoprefixer";
 
 const todoSlice = createSlice({
   name: 'todo',
@@ -14,7 +15,7 @@ const todoSlice = createSlice({
       state.message = action.payload.message;
     },
     newTask(state, action) {
-      state.activeTasks = [...state.activeTasks, action.payload.active];
+      state.activeTasks = [action.payload.data, ...state.activeTasks];
       state.message = action.payload.message;
     },
     errorMessage(state, action) {
@@ -47,11 +48,24 @@ export const getTasks = () => {
 // function get one task pakai index array
 
 // function add task buat save ke local storage
-export const addTask = (data) => {
-  localStorage.setItem('') // not done
+export const addTask = (task) => {
+  const { payload: { active, completed } } = getTasks();
+  const arr = active.concat(completed);
+
+  const data = {
+    id: new Date().getTime(),
+    task,
+    isCompleted: false
+  };
+  arr.push(data);
+
+  localStorage.setItem('tasks', JSON.stringify(arr));
+
+  const res = { data, message: 'Success' };
+  return newTask(res);
 }
 
-// function edit pakai id, panggil get one task function lalu save lagi ke redux dan local storage
+// function edit dan check list pakai id, panggil get one task function lalu save lagi ke redux dan local storage
 
 // dunction delete pakai id, panggil get one task function lalu save lagi data tanpa deleted ke redux dan local storage
 
