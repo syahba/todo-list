@@ -3,7 +3,7 @@ import CompletedTask from "./CompletedTask";
 import Header from "./Header";
 import Heading from "./Heading";
 import StatBox from "./StatBox";
-import hero from "../assets/hero-img.png"
+import hero from "../assets/hero-img.png";
 
 function Dashboard() {
   // dummy data
