@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { data } from "autoprefixer";
 
 const todoSlice = createSlice({
   name: 'todo',
@@ -26,13 +25,13 @@ const todoSlice = createSlice({
 
 export const { setTasks, newTask, errorMessage } = todoSlice.actions;
 
-// get task from local storage to redux state
+// get task from local storage
 export const getTasks = () => {
   const data = JSON.parse(localStorage.getItem('tasks'));
   const res = { message: 'Success' };
-  
+
   if (data) {
-    // separating active and completed tasks to two states
+    // separating tasks into two states
     const active = data.filter((v) => v.isCompleted === false);
     const completed = data.filter((v) => v.isCompleted === true);
 
@@ -41,12 +40,12 @@ export const getTasks = () => {
 
     return setTasks(res);
   } else {
-    res.message = 'Error'; // error handling no data
+    res.message = 'Error';
     return errorMessage(res.message);
   };
 };
 
-// add new task to local storage and redux state
+// add new task
 export const addTask = (task) => {
   const { payload: { active, completed, message } } = getTasks();
   let arr = [];
@@ -68,11 +67,66 @@ export const addTask = (task) => {
   return newTask(res);
 };
 
-// function edit dan check list pakai id, panggil get one task function lalu save lagi ke redux dan local storage
+export const editCheck = (id, status) => {
+  const { payload: { active, completed, message } } = getTasks();
 
-// delete task in redux state and local storage
+  if (message === 'Success') {
+    if (!status) {
+      const index = active.findIndex(v => v.id === id); // find data
+
+      active[index].isCompleted = true;
+      completed.push(active[index]); // add data to completed array
+
+      const arrActive = active.filter(v => v.id !== id); // delete data from active array
+      const data = arrActive.concat(completed);
+      localStorage.setItem('tasks', JSON.stringify(data));
+
+      const res = { active: arrActive, completed, message: 'Success' };
+      return setTasks(res);
+    } else {
+      const index = completed.findIndex(v => v.id === id);
+
+      completed[index].isCompleted = false;
+      active.push(completed[index]); // add data to active array
+
+      const arrCompleted = completed.filter(v => v.id !== id); // delete data from completed array
+      const data = active.concat(arrCompleted);
+      localStorage.setItem('tasks', JSON.stringify(data));
+
+      const res = { active, completed: arrCompleted, message: 'Success' };
+      return setTasks(res);
+    };
+  } else {
+    return errorMessage(message);
+  };
+};
+
+// edit task and edit completion status
+// export const editTask = (id, params) => {
+//   const { payload: { active, completed, message } } = getTasks();
+//   let arr = [];
+
+//   if (message === 'Success') {
+//     arr = active.concat(completed);
+//     const index = arr.indexOf(v => v.id === id); // return task index
+
+//     arr[index].task = params.task ? params.task : arr[index].task;
+//     arr[index].isCompleted = params.isCompleted ? params.isCompleted : arr[index].isCompleted;
+
+//     localStorage.setItem('tasks', JSON.stringify(arr)); // replace data in local storage
+
+//     // gimana cara biar bisa kepisah lagi datanya cative dan completed?
+
+//     // const res = { data, message: 'Success' };
+//     // return setTasks(res);
+//   } else {
+//     return errorMessage(message);
+//   };
+// };
+
+// delete task
 export const deleteTask = (id) => {
-  const { payload: { active, completed, message }} = getTasks();
+  const { payload: { active, completed, message } } = getTasks();
 
   if (message === 'Success') {
     const arrCompleted = completed.filter(v => v.id !== id);

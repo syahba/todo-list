@@ -13,7 +13,7 @@ function ButtonAdd() {
         <FontAwesomeIcon icon={faCirclePlus} style={{ color: "#ba5112", paddingLeft: '2em' }} />
       </button>
 
-      {isOpen && <Modal setIsOpen={setIsOpen}></Modal>}
+      {isOpen && <Modal setIsOpen={setIsOpen} activity={'Add'}></Modal>}
     </div>
   );
 }

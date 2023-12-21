@@ -1,12 +1,12 @@
 import { faSquareCheck, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function CompletedTask({ data }) {
+function CompletedTask({ data, deleteBtn, checkBtn }) {
   return (
     <div className="item completed-task">
-      <FontAwesomeIcon icon={faSquareCheck} style={{ color: "#ba5112", }} />
-      <p className="task">{data.task}</p>
-      <FontAwesomeIcon icon={faTrashCan} style={{ color: "#edb046" }} />
+      <FontAwesomeIcon icon={faSquareCheck} style={{ color: "#ba5112", }} onClick={checkBtn} />
+      <p className="task">{data}</p>
+      <FontAwesomeIcon icon={faTrashCan} style={{ color: "#edb046" }} onClick={deleteBtn} />
     </div>
   );
 }

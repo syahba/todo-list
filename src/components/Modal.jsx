@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTask } from "../redux/slice/todo-slice";
 
-function Modal({ setIsOpen }) {
+function Modal({ setIsOpen, activity }) {
   const dispatch = useDispatch();
   const [input, setInput] = useState('');
 
@@ -13,7 +13,7 @@ function Modal({ setIsOpen }) {
         <button onClick={() => {
           dispatch(addTask(input));
           setIsOpen(false);
-        }}>Add</button>
+        }}>{activity}</button>
       </div>
       <div className="bg-dark" onClick={() => setIsOpen(false)}></div>
     </div>
