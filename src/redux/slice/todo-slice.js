@@ -102,27 +102,22 @@ export const editCheck = (id, status) => {
 };
 
 // edit task and edit completion status
-// export const editTask = (id, params) => {
-//   const { payload: { active, completed, message } } = getTasks();
-//   let arr = [];
+export const editTask = (id, task) => {
+  const { payload: { active, completed, message } } = getTasks();
 
-//   if (message === 'Success') {
-//     arr = active.concat(completed);
-//     const index = arr.indexOf(v => v.id === id); // return task index
+  if (message === 'Success') {
+    const index = active.findIndex(v => v.id === id);
 
-//     arr[index].task = params.task ? params.task : arr[index].task;
-//     arr[index].isCompleted = params.isCompleted ? params.isCompleted : arr[index].isCompleted;
+    active[index].task = task; // change value data
+    const data = active.concat(completed);
+    localStorage.setItem('tasks', JSON.stringify(data));
 
-//     localStorage.setItem('tasks', JSON.stringify(arr)); // replace data in local storage
-
-//     // gimana cara biar bisa kepisah lagi datanya cative dan completed?
-
-//     // const res = { data, message: 'Success' };
-//     // return setTasks(res);
-//   } else {
-//     return errorMessage(message);
-//   };
-// };
+    const res = { active, completed, message: 'Success' };
+    return setTasks(res);
+  } else {
+    return errorMessage(message);
+  };
+};
 
 // delete task
 export const deleteTask = (id) => {
