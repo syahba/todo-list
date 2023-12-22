@@ -1,7 +1,7 @@
 function Header({ header }) {
   return (
     <div>
-      <h2 className="text-base font-normal py-5 pl-5">{header}</h2>
+      <h2 className="text-base py-4 pl-5 mb-5">{header}</h2>
     </div>
   );
 }

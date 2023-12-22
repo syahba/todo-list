@@ -3,21 +3,22 @@ import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import Modal from "./Modal";
+import '../styles/Task.css';
 
 function ActiveTask({ props: { data, deleteBtn, checkBtn } }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div>
-      <div className="">
-        <div className="">
-          <FontAwesomeIcon icon={faSquareCheck} style={{ color: "#edb046" }} onClick={checkBtn} />
-          <p className="">{data.task}</p>
+      <div className="task-box active" >
+        <div className="task-item">
+          <FontAwesomeIcon icon={faSquareCheck} className="icon-left" style={{ color: "#edb046" }} onClick={checkBtn} />
+          <p className="task-desc">{data.task}</p>
         </div>
 
-        <div>
+        <div className="task-action">
           <FontAwesomeIcon icon={faPenToSquare} style={{ color: "#edb046" }} onClick={() => setIsOpen(true)} />
-          <FontAwesomeIcon icon={faTrashCan} style={{ color: "#edb046" }} onClick={deleteBtn} />
+          <FontAwesomeIcon icon={faTrashCan} className="icon-right" style={{ color: "#edb046" }} onClick={deleteBtn} />
         </div>
       </div>
 

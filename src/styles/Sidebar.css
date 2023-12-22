@@ -1,5 +1,5 @@
 .sidebar {
-  @apply fixed flex flex-col bg-white h-screen max-w-[14rem] items-center z-[1] top-0 left-0 overflow-hidden shadow-xl;
+  @apply fixed flex flex-col bg-white h-screen max-w-[14rem] items-center z-[1] top-0 left-0 overflow-hidden shadow-lg;
 }
 
 .logo {

@@ -1,0 +1,23 @@
+.task-box {
+  @apply flex items-center justify-between mb-4 py-3 px-7 rounded-lg shadow-[2px_2px_6px_0px_rgba(0,0,0,0.08)];
+}
+
+.active {
+  background-color: var(--white-color);
+}
+
+.completed {
+  background-color: var(--primary-color);
+}
+
+.icon-left {
+  @apply pr-4;
+}
+
+.icon-right {
+  @apply pl-4;
+}
+
+.task-item {
+  @apply flex items-center;
+}

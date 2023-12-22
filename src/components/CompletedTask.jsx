@@ -3,10 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function CompletedTask({ props: { data, deleteBtn, checkBtn } }) {
   return (
-    <div className="item completed-task">
-      <FontAwesomeIcon icon={faSquareCheck} style={{ color: "#ba5112", }} onClick={checkBtn} />
-      <p className="task">{data.task}</p>
-      <FontAwesomeIcon icon={faTrashCan} style={{ color: "#edb046" }} onClick={deleteBtn} />
+    <div className="task-box completed">
+      <div className="task-item">
+        <FontAwesomeIcon icon={faSquareCheck} className="icon-left"  style={{ color: "#ba5112", }} onClick={checkBtn} />
+        <p className="task-desc">{data.task}</p>
+      </div>
+
+      <FontAwesomeIcon icon={faTrashCan} style={{ color: "#ba5112" }} onClick={deleteBtn} />
     </div>
   );
 }
