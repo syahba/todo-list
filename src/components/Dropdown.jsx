@@ -1,6 +1,6 @@
 function Dropdown() {
   return (
-    <div>
+    <div className="bg-orange-400">
       <select name="page" className="dropdown">
         <option value="/">Dashboard</option>
         <option value="/active">Active</option>

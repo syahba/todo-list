@@ -3,12 +3,14 @@ import Dashboard from './components/Dashboard'
 import ActivePage from './components/ActivePage'
 import CompletedPage from './components/CompletedPage'
 import Sidebar from './components/Sidebar'
+import MobileHeader from './components/MobileHeader'
 
 function App() {
+  console.log(window.innerWidth);
   return (
     <>
       <BrowserRouter>
-        <Sidebar></Sidebar>
+        {window.innerWidth > 426 ? <Sidebar></Sidebar> : <MobileHeader></MobileHeader>}
 
         <Routes>
           <Route path='/' element={<Dashboard></Dashboard>}></Route>
