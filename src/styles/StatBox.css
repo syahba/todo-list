@@ -16,7 +16,7 @@
 
 @media screen and (max-width: 426px) {
   .stat-box {
-    @apply flex text-start items-center justify-evenly ml-0 mb-2 mt-1 py-2 w-40 rounded-lg;
+    @apply flex text-start items-center justify-evenly ml-0 mb-1 mt-1.5 py-2 w-40 rounded-lg;
   }
 
   .stat {
