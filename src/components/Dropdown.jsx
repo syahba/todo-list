@@ -1,10 +1,16 @@
 import { Link } from "react-router-dom";
 import '../styles/Dropdown.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 function Dropdown() {
   return (
     <div className="dropdown">
-      <button className="dropbtn">Menu</button>
+      <div className="btn">
+        <button className="dropbtn">Menu</button>
+        <FontAwesomeIcon icon={faAngleDown} className="fa-xs" style={{ color: '#251814' }} />
+      </div>
+      
       <div className="dropdown-content">
         <Link to='/' className="link">Dashboard</Link>
         <Link to='/active' className="link">Active</Link>

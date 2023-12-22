@@ -13,3 +13,33 @@
 .stat-desc {
   @apply text-[0.6rem] text-white;
 }
+
+@media screen and (max-width: 426px) {
+  .stat-box {
+    @apply flex text-start items-center justify-evenly ml-0 mb-2 mt-1 py-2 w-40 rounded-lg;
+  }
+
+  .stat {
+    @apply text-base font-bold mb-[-0.3rem];
+  }
+
+  .stat-desc {
+    @apply text-[0.5rem];
+  }
+
+  .stat-icon {
+    @apply mb-0;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .stat-box {
+    @apply w-36;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .stat-box {
+    @apply w-28;
+  }
+}

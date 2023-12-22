@@ -32,16 +32,23 @@ function Dashboard({ screen }) {
           <img className="hero-img" src={hero} alt="working-women" />
         </div>
 
+        {screen < 426 ?
+          <div className="stats">
+            <StatBox props={{ status: 'Active', amount: activeTasks.length, total: allTasks.length }}></StatBox>
+            <StatBox props={{ status: 'Completed', amount: completedTasks.length, total: allTasks.length }}></StatBox>
+          </div> : <div></div>}
+
         <div className="task-section">
           <Heading page={''}></Heading>
 
           <div className="task">
-            {message === 'Error' ? <EmptyTask></EmptyTask> : <TaskContainer tasks={{ activeTasks, completedTasks }}></TaskContainer>}
+            {screen > 426 ?
+              <div className="stats">
+                <StatBox props={{ status: 'Active', amount: activeTasks.length, total: allTasks.length }}></StatBox>
+                <StatBox props={{ status: 'Completed', amount: completedTasks.length, total: allTasks.length }}></StatBox>
+              </div> : <div></div>}
 
-            <div className="stats">
-              <StatBox props={{ status: 'Active', amount: activeTasks.length, total: allTasks.length }}></StatBox>
-              <StatBox props={{ status: 'Completed', amount: completedTasks.length, total: allTasks.length }}></StatBox>
-            </div>
+            {message === 'Error' ? <EmptyTask></EmptyTask> : <TaskContainer tasks={{ activeTasks, completedTasks }}></TaskContainer>}
           </div>
         </div>
 

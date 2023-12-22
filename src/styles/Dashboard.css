@@ -17,7 +17,7 @@
 }
 
 .task {
-  @apply flex justify-between;
+  @apply flex flex-row-reverse justify-between;
 }
 
 .stats {
@@ -39,11 +39,43 @@
 }
 
 @media screen and (max-width: 800px) {
+  .hero {
+    @apply mb-2;
+  }
+
   .hero-title {
-    @apply text-xl;
+    @apply text-lg mb-[0.05rem];
   }
 
   .hero-desc {
     font-size: 0.5rem;
+  }
+
+  .hero-img {
+    max-width: 6rem;
+    padding: 10px 0;
+  }
+}
+
+@media screen and (max-width: 426px)  {
+  .stats {
+    @apply flex flex-row justify-between;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .hero-title {
+    @apply text-sm;
+  }
+
+  .hero-img {
+    max-width: 5rem;
+    padding: 8px 0;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .hero-title {
+    @apply text-xs;
   }
 }

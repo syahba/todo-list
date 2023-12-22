@@ -9,3 +9,13 @@
 .date {
   @apply text-[0.6rem];
 }
+
+@media screen and (max-width: 426px) {
+  .heading-title {
+    @apply text-sm;
+  }
+
+  .date {
+    @apply text-[0.5rem];
+  }
+}
