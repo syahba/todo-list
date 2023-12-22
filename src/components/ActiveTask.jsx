@@ -22,7 +22,7 @@ function ActiveTask({ props: { data, deleteBtn, checkBtn } }) {
         </div>
       </div>
 
-      {isOpen && <Modal setIsOpen={setIsOpen} activity={'Edit'} id={data.id}></Modal>}
+      {isOpen && <Modal setIsOpen={setIsOpen} activity={'Edit'} data={data}></Modal>}
     </div>
   );
 }
