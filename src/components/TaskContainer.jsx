@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import ActiveTask from "./ActiveTask";
 import CompletedTask from "./CompletedTask";
 import { deleteTask, editCheck } from "../redux/slice/todo-slice";
+import PropTypes from 'prop-types';
 
 function TaskContainer({ tasks }) {
   const dispatch = useDispatch();
@@ -35,6 +36,10 @@ function TaskContainer({ tasks }) {
       )) : <div></div>}
     </div>
   );
+}
+
+TaskContainer.propTypes = {
+  tasks: PropTypes.object
 }
 
 export default TaskContainer;

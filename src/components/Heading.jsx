@@ -1,4 +1,5 @@
 import '../styles/Heading.css';
+import PropTypes from 'prop-types';
 
 function Heading({ page }) {
   const today = new Date();
@@ -10,6 +11,10 @@ function Heading({ page }) {
       <p className="date">{date}</p>
     </div>
   );
+}
+
+Heading.propTypes = {
+  page: PropTypes.string
 }
 
 export default Heading;

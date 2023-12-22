@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTask, editTask } from "../redux/slice/todo-slice";
+import PropTypes from 'prop-types';
 
 function Modal({ setIsOpen, activity, data }) {
   const dispatch = useDispatch();
@@ -22,6 +23,12 @@ function Modal({ setIsOpen, activity, data }) {
       </div>
     </div>
   );
+}
+
+Modal.propTypes = {
+  setIsOpen: PropTypes.func,
+  activity: PropTypes.string,
+  data: PropTypes.object
 }
 
 export default Modal;

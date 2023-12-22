@@ -6,7 +6,6 @@ import Sidebar from './components/Sidebar'
 import MobileHeader from './components/MobileHeader'
 
 function App() {
-  console.log(window.innerWidth);
   return (
     <>
       <BrowserRouter>

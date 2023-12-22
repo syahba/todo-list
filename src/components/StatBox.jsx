@@ -1,6 +1,7 @@
 import { faCircleCheck, faRotateRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import '../styles/StatBox.css';
+import PropTypes from 'prop-types';
 
 function StatBox({ props }) {
   return (
@@ -12,6 +13,10 @@ function StatBox({ props }) {
       <p className="stat-desc">{props.status} tasks</p>
     </div>
   );
+}
+
+StatBox.propTypes = {
+  props: PropTypes.object
 }
 
 export default StatBox;
