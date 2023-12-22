@@ -1,0 +1,25 @@
+.sidebar {
+  @apply fixed flex flex-col bg-white h-screen max-w-[14rem] items-center z-[1] top-0 left-0 overflow-hidden shadow-lg;
+}
+
+.nav-container {
+  @apply flex flex-col items-center my-6;
+}
+
+.nav-item {
+  @apply py-1 my-2 w-[14rem] text-center text-sm;
+}
+
+.nav-item:hover {
+  background-color: var(--primary-color);
+}
+
+@media screen and (max-width: 800px) {
+  .sidebar {
+    max-width: 12rem;
+  }
+
+  .nav-item {
+    width: 12rem;
+  }
+}

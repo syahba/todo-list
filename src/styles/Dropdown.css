@@ -1,0 +1,35 @@
+.btn {
+  @apply flex items-center justify-between py-2 px-6 w-screen;
+  background-color: var(--primary-color);
+}
+
+.dropbtn {
+  @apply text-xs;
+}
+
+.dropdown {
+  @apply relative inline-block mb-2;
+}
+
+.dropdown-content {
+  @apply hidden absolute w-screen z-[1];
+  background-color: var(--white-color);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.08);
+}
+
+.dropdown-content .link {
+  @apply block py-2 pl-5 text-xs;
+}
+
+.dropdown-content .link:hover {
+  background-color: var(--primary-color);
+}
+
+.dropdown:hover .dropdown-content {
+  @apply block;
+}
+
+.dropdown:hover .btn {
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+}
