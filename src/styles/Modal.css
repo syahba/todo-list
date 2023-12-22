@@ -1,0 +1,22 @@
+.modal {
+  @apply fixed z-50 left-0 top-0 h-full w-full flex items-center justify-center bg-black bg-opacity-50;
+}
+
+.modal-input {
+  @apply h-11 w-1/2 text-sm pl-4 rounded-lg shadow-[4px_4px_8px_0px_rgba(0,0,0,0.10)];
+}
+
+.add-btn {
+  @apply py-3 px-6 ml-5 mr-2 rounded-lg text-sm shadow-[4px_4px_8px_0px_rgba(0,0,0,0.10)];
+  background-color: var(--primary-color);
+}
+
+.close-btn {
+  @apply py-3 px-4 rounded-lg shadow-[4px_4px_8px_0px_rgba(0,0,0,0.10)];
+  background-color: var(--primary-color);
+}
+
+.add-btn:hover, .close-btn:hover {
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+}
