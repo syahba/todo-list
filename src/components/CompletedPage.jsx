@@ -5,8 +5,9 @@ import { getTasks } from "../redux/slice/todo-slice";
 import { useEffect } from "react";
 import TaskContainer from "./TaskContainer";
 import EmptyTask from "./EmptyTask";
+import PropTypes from 'prop-types';
 
-function CompletedPage() {
+function CompletedPage({ screen }) {
   const dispatch = useDispatch();
   const { completedTasks, message } = useSelector(state => state.todo);
 
@@ -16,7 +17,7 @@ function CompletedPage() {
 
   return (
     <div className="main">
-      <Header header={'Completed'}></Header>
+    {screen > 426 ? <Header header={'Completed'}></Header> : <div></div>}
 
       <div className="content">
         <Heading page={'Completed'}></Heading>
@@ -25,6 +26,10 @@ function CompletedPage() {
       </div>
     </div>
   );
+}
+
+CompletedPage.propTypes = {
+  screen: PropTypes.number
 }
 
 export default CompletedPage;

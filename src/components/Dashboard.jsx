@@ -7,9 +7,10 @@ import { useEffect } from "react";
 import { getTasks } from "../redux/slice/todo-slice";
 import TaskContainer from "./TaskContainer";
 import EmptyTask from "./EmptyTask";
-import '../styles/Dashboard.css'
+import '../styles/Dashboard.css';
+import PropTypes from 'prop-types';
 
-function Dashboard() {
+function Dashboard({ screen }) {
   const dispatch = useDispatch();
   const { activeTasks, completedTasks, message } = useSelector(state => state.todo);
   const allTasks = activeTasks.concat(completedTasks);
@@ -20,7 +21,7 @@ function Dashboard() {
 
   return (
     <div className="main">
-      <Header header={'Dashboard'}></Header>
+      {screen > 426 ? <Header header={'Dashboard'}></Header> : <div></div>}
 
       <div className="content">
         <div className="hero">
@@ -47,6 +48,10 @@ function Dashboard() {
       </div>
     </div>
   );
+}
+
+Dashboard.propTypes = {
+  screen: PropTypes.number
 }
 
 export default Dashboard;

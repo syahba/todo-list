@@ -6,15 +6,17 @@ import Sidebar from './components/Sidebar'
 import MobileHeader from './components/MobileHeader'
 
 function App() {
+  const screen = window.innerWidth;
+
   return (
     <>
       <BrowserRouter>
-        {window.innerWidth > 426 ? <Sidebar></Sidebar> : <MobileHeader></MobileHeader>}
+        {screen > 426 ? <Sidebar></Sidebar> : <MobileHeader></MobileHeader>}
 
         <Routes>
-          <Route path='/' element={<Dashboard></Dashboard>}></Route>
-          <Route path='/active' element={<ActivePage></ActivePage>}></Route>
-          <Route path='/completed' element={<CompletedPage></CompletedPage>}></Route>
+          <Route path='/' element={<Dashboard screen={screen}></Dashboard>}></Route>
+          <Route path='/active' element={<ActivePage screen={screen}></ActivePage>}></Route>
+          <Route path='/completed' element={<CompletedPage screen={screen}></CompletedPage>}></Route>
         </Routes>
       </BrowserRouter>
     </>

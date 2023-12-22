@@ -1,11 +1,15 @@
+import { Link } from "react-router-dom";
+import '../styles/Dropdown.css';
+
 function Dropdown() {
   return (
-    <div className="bg-orange-400">
-      <select name="page" className="dropdown">
-        <option value="/">Dashboard</option>
-        <option value="/active">Active</option>
-        <option value="/completed">Completed</option>
-      </select>
+    <div className="dropdown">
+      <button className="dropbtn">Menu</button>
+      <div className="dropdown-content">
+        <Link to='/' className="link">Dashboard</Link>
+        <Link to='/active' className="link">Active</Link>
+        <Link to='/completed' className="link">Completed</Link>
+      </div>
     </div>
   );
 }
