@@ -7,6 +7,10 @@
   @apply text-3xl font-bold mb-2;
 }
 
+.hero-desc {
+  @apply text-sm;
+}
+
 .hero-img {
   max-width: 12rem;
   padding: 14px 0;
@@ -18,4 +22,28 @@
 
 .stats {
   @apply flex flex-col justify-center;
+}
+
+@media screen and (max-width: 930px) {
+  .hero-title {
+    @apply text-2xl mb-1;
+  }
+
+  .hero-desc {
+    @apply text-xs;
+  }
+
+  .hero-img {
+    max-width: 8rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .hero-title {
+    @apply text-xl;
+  }
+
+  .hero-desc {
+    font-size: 0.5rem;
+  }
 }

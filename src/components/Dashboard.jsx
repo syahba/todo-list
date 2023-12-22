@@ -26,7 +26,7 @@ function Dashboard() {
         <div className="hero">
           <div className="hero-text">
             <h1 className="hero-title">Hello, Beautiful Human!</h1>
-            <p className="text-sm">What do you want to do today?</p>
+            <p className="hero-desc">What do you want to do today?</p>
           </div>
           <img className="hero-img" src={hero} alt="working-women" />
         </div>

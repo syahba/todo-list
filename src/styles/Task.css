@@ -21,3 +21,7 @@
 .task-item {
   @apply flex items-center;
 }
+
+.task-desc {
+  flex-wrap: wrap;
+}

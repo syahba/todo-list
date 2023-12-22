@@ -43,3 +43,13 @@ p {
 .task-section {
   @apply flex flex-col justify-between;
 }
+
+@media screen and (max-width: 800px) {
+  .main {
+    margin-left: 12rem;
+  }
+
+  .content {
+    margin: 0 2rem;
+  }
+}
