@@ -1,0 +1,11 @@
+.heading {
+  @apply flex items-center justify-between my-4;
+}
+
+.heading-title {
+  @apply text-base font-bold;
+}
+
+.date {
+  @apply text-[0.6rem];
+}

@@ -76,24 +76,24 @@ export const editCheck = (id, status) => {
 
       active[index].isCompleted = true;
       completed.push(active[index]); // add data to completed array
+      active.splice(index, 1); // delete data from active array
 
-      const arrActive = active.filter(v => v.id !== id); // delete data from active array
-      const data = arrActive.concat(completed);
+      const data = active.concat(completed);
       localStorage.setItem('tasks', JSON.stringify(data));
 
-      const res = { active: arrActive, completed, message: 'Success' };
+      const res = { active, completed, message: 'Success' };
       return setTasks(res);
     } else {
       const index = completed.findIndex(v => v.id === id);
 
       completed[index].isCompleted = false;
       active.push(completed[index]); // add data to active array
-
-      const arrCompleted = completed.filter(v => v.id !== id); // delete data from completed array
-      const data = active.concat(arrCompleted);
+      completed.splice(index, 1); // delete data from completed array
+      
+      const data = active.concat(completed);
       localStorage.setItem('tasks', JSON.stringify(data));
 
-      const res = { active, completed: arrCompleted, message: 'Success' };
+      const res = { active, completed, message: 'Success' };
       return setTasks(res);
     };
   } else {

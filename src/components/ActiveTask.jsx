@@ -9,14 +9,18 @@ function ActiveTask({ props: { data, deleteBtn, checkBtn } }) {
 
   return (
     <div>
-      <div className="item active-task">
-        <FontAwesomeIcon icon={faSquareCheck} style={{ color: "#edb046" }} onClick={checkBtn} />
-        <p className="task">{data.task}</p>
-        <FontAwesomeIcon icon={faPenToSquare} style={{ color: "#edb046" }} onClick={() => setIsOpen(true)} />
-        <FontAwesomeIcon icon={faTrashCan} style={{ color: "#edb046" }} onClick={deleteBtn} />
+      <div className="">
+        <div className="">
+          <FontAwesomeIcon icon={faSquareCheck} style={{ color: "#edb046" }} onClick={checkBtn} />
+          <p className="">{data.task}</p>
+        </div>
+
+        <div>
+          <FontAwesomeIcon icon={faPenToSquare} style={{ color: "#edb046" }} onClick={() => setIsOpen(true)} />
+          <FontAwesomeIcon icon={faTrashCan} style={{ color: "#edb046" }} onClick={deleteBtn} />
+        </div>
       </div>
 
-      
       {isOpen && <Modal setIsOpen={setIsOpen} activity={'Edit'} id={data.id}></Modal>}
     </div>
   );

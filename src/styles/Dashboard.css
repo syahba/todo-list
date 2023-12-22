@@ -1,0 +1,21 @@
+.hero {
+  @apply flex items-center justify-evenly rounded-2xl mt-2 mb-5;
+  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.10);
+}
+
+.hero-title {
+  @apply text-3xl font-bold mb-2;
+}
+
+.hero-img {
+  max-width: 12rem;
+  padding: 14px 0;
+}
+
+.task {
+  @apply flex justify-between;
+}
+
+.stats {
+  @apply flex flex-col justify-center;
+}

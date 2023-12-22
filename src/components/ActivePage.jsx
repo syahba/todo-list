@@ -9,18 +9,20 @@ import EmptyTask from "./EmptyTask";
 function ActivePage() {
   const dispatch = useDispatch();
   const { activeTasks, message } = useSelector(state => state.todo);
-  
+
   useEffect(() => {
     dispatch(getTasks());
   }, []);
 
   return (
-    <div>
+    <div className="main">
       <Header header={'Active'}></Header>
 
-      <Heading page={'Active'}></Heading>
-      {message === 'Error' || activeTasks.length === 0 ? <EmptyTask status={'active'}></EmptyTask> 
-        : <TaskContainer tasks={{ activeTasks }}></TaskContainer>}
+      <div className="content">
+        <Heading page={'Active'}></Heading>
+        {message === 'Error' || activeTasks.length === 0 ? <EmptyTask status={'active'}></EmptyTask>
+          : <TaskContainer tasks={{ activeTasks }}></TaskContainer>}
+      </div>
     </div>
   );
 }

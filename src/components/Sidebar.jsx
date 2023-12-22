@@ -1,19 +1,22 @@
 import { Link } from "react-router-dom";
 import ButtonAdd from "./ButtonAdd";
+import '../styles/Sidebar.css'
 
 function Sidebar() {
   return (
-    <div>
-      <h1 className="logo">To-Do App</h1>
+    <aside>
+      <div className="sidebar">
+        <h1 className="logo">To-Do App</h1>
 
-      <ButtonAdd></ButtonAdd>
+        <ButtonAdd></ButtonAdd>
 
-      <div className="nav-list">
-        <Link to='/' className="nav-item">Dashboard</Link>
-        <Link to='/active' className="nav-item">Active</Link>
-        <Link to='/completed' className="nav-item">Completed</Link>
+        <div className="nav-container">
+          <Link to='/' className="nav-item">Dashboard</Link>
+          <Link to='/active' className="nav-item">Active</Link>
+          <Link to='/completed' className="nav-item">Completed</Link>
+        </div>
       </div>
-    </div>
+    </aside>
   );
 }
 

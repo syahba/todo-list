@@ -1,0 +1,20 @@
+.sidebar {
+  @apply fixed flex flex-col bg-white h-screen max-w-[14rem] items-center z-[1] top-0 left-0 overflow-hidden shadow-xl;
+}
+
+.logo {
+  @apply text-2xl font-bold py-3;
+  color: var(--secondary-color);
+}
+
+.nav-container {
+  @apply flex flex-col items-center my-6;
+}
+
+.nav-item {
+  @apply py-1 my-2 w-[14rem] text-center text-sm;
+}
+
+.nav-item:hover {
+  background-color: var(--primary-color);
+}

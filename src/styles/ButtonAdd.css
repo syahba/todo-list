@@ -1,0 +1,7 @@
+.btn-add {
+  @apply my-8 py-4 px-6 shadow-[0_0_20px_0_rgba(0,0,0,0.08)] rounded-xl text-base;
+}
+
+.btn-add:hover {
+  background-color: var(--primary-color);
+}
