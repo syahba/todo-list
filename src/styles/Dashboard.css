@@ -21,7 +21,7 @@
 }
 
 .stats {
-  @apply flex flex-col justify-center;
+  @apply flex flex-col;
 }
 
 @media screen and (max-width: 930px) {
